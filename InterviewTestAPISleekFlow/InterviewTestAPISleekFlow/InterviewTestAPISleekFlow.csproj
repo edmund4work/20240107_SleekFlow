@@ -32,5 +32,6 @@
   <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="WeatherForecast.cs" />
+    <Compile Remove="Startup.cs" />
   </ItemGroup>
 </Project>

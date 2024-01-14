@@ -1,7 +1,5 @@
-﻿using System;
-using InterviewTestAPISleekFlow.common;
+﻿using InterviewTestAPISleekFlow.common;
 using InterviewTestAPISleekFlow.Interfaces;
-using InterviewTestAPISleekFlow.Models;
 using InterviewTestAPISleekFlow.Models.ViewModels;
 using static InterviewTestAPISleekFlow.Models.ViewModels.todoVM;
 
@@ -9,11 +7,8 @@ namespace InterviewTestAPISleekFlow.Services
 {
     public class TodoService : ITodoService
     {
-        private readonly ITodoService _todoService;
-
-        public TodoService(ITodoService todoService)
+        public TodoService()
         {
-            _todoService = todoService;
         }
 
         public commonJsonReturn todoCRUD(todoDataRequest data)

@@ -7,6 +7,8 @@ namespace InterviewTestAPISleekFlow.Models
         public required string Name { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
+
+        public bool enabled { get; set; }
         public required int statusID { get; set; } //from commonStatus.cs
 
         public int priority { get; set; }

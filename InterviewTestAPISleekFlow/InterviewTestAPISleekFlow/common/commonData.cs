@@ -1,7 +1,6 @@
-﻿using System;
-namespace InterviewTestAPISleekFlow.common
+﻿namespace InterviewTestAPISleekFlow.common
 {
-	public class commonData
+    public class commonData
 	{
 		public commonData()
 		{
