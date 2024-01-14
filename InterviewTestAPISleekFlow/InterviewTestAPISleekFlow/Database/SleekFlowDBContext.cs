@@ -13,16 +13,17 @@ namespace InterviewTestAPISleekFlow.Database
         {
 
         }
-        // Todo Table
-        public DbSet<tblTodo> tblTodo { get; set; }
 
-        // commonTags Table
+        /// <summary>
+        /// Commont table
+        /// </summary>
         public DbSet<tblCommonTags> tblCommonTags { get; set; }
-
-        // commonStatus Table
         public DbSet<tblCommonStatus> tblCommonStatuses { get; set; }
 
-        // todoTags Table
+        /// <summary>
+        /// Todo Related Table
+        /// </summary>
+        public DbSet<tblTodo> tblTodo { get; set; }
         public DbSet<tblTodoTags> tblTodoTags { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -44,8 +45,10 @@ namespace InterviewTestAPISleekFlow.Database
         {
             // Configure relationships and constraints here
 
-            // Example: Todo and commonStatus relationship
-            modelBuilder.Entity<tblTodo>().HasKey(t => t.Id); // or DeleteBehavior.Cascade depending on your requirements
+            modelBuilder.Entity<tblTodo>().HasKey(t => t.Id);
+            modelBuilder.Entity<tblCommonTags>().HasKey(t => t.ID);
+            modelBuilder.Entity<tblCommonStatus>().HasKey(t => t.statusID);
+            modelBuilder.Entity<tblTodoTags>().HasKey(t => t.Id);
 
             // Add other relationships and constraints as needed
         }

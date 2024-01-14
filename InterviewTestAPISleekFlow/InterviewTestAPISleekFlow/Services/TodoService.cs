@@ -136,13 +136,38 @@ namespace InterviewTestAPISleekFlow.Services
 
             try
             {
-                List<tblTodo> dataReturn
+                List<todoDataReturn> dataReturnList
                 = (from t1 in sql.tblTodo
-                   where t1.Id == t1.Id
+                   join t2 in sql.tblCommonStatuses on t1.statusID equals t2.statusID into sT2
+                   from t2lj in sT2.DefaultIfEmpty()
+                   where t1.enabled == true
+                   && (data.statusIDSelected != null ? data.statusIDSelected.Contains(t1.statusID) : 1==1)
+                   && (data.dueDateFrom != null ? data.dueDateFrom <= t1.DueDate : true)
+                   && (data.dueDateTo != null ? data.dueDateTo >= t1.DueDate : true)
+                   orderby t1.priority
                    select new todoDataReturn
                    {
-
+                       Id = t1.Id,
+                       Name = t1.Name,
+                       statusID = t1.statusID,
+                       statusName = t2lj != null ? t2lj.statusName : "",
+                       Description = t1.Description,
+                       DueDate = t1.DueDate,
+                       priority = t1.priority,
+                       priorityName = "",//1 : Urgent; 2 : Not Urgent ; 3 : Relax
+                       updatedDate = t1.updatedDate,
+                       createdDate = t1.createdDate,
                    }).ToList();
+
+                foreach (todoDataReturn itm in dataReturnList)
+                {
+                    if (itm.priority == 1)
+                        itm.priorityName = "Urgent";
+                    else if (itm.priority == 2)
+                        itm.priorityName = "Not Urgent";
+                    else if (itm.priority == 3)
+                        itm.priorityName = "Relax";
+                }
             }
             catch(Exception ex)
             {

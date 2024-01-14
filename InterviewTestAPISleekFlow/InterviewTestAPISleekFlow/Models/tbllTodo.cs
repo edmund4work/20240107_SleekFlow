@@ -13,7 +13,7 @@ namespace InterviewTestAPISleekFlow.Models
         public DateTime DueDate { get; set; }
 
         public bool enabled { get; set; }
-        public required int statusID { get; set; } //from commonStatus.cs (1 : Active; 2 : Pending ; 3 : Discontinue ; 4 : Completed)
+        public required int statusID { get; set; } //from commonStatus.cs (1 : Active; 2 : Pending ; 3 : Discontinued ; 4 : Completed ; 5 Not Started)
 
         public int priority { get; set; } //1 : Urgent; 2 : Not Urgent ; 3 : Relax
         public DateTime createdDate { get; set; }

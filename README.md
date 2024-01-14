@@ -8,6 +8,32 @@
 3) that is some plug-in needed : 
 3.1) Microsoft.EntityFrameworkCore (7.0.15)
 3.2) Microsoft.EntityFrameworkCore.SqlServer (7.0.15)
+4) 2 API are able to call: 
+4.1) API to get all list of Todo
+curl --location 'https://localhost:7119/api/todo/getFullList' \
+--header 'Content-Type: application/json' \
+--data '{
+  "statusIDSelected": [
+    1,
+    2
+  ],
+  "dueDateFrom": "2024-01-14T14:21:46.857Z",
+  "dueDateTo": "2024-01-14T14:21:46.857Z"
+}'
+4.2) API CRUD for Todo
+curl --location 'https://localhost:7119/api/todo/crud' \
+--header 'Content-Type: application/json' \
+--data '{
+  "action": "string", 
+  "todoData": {
+    "id": 0, 
+    "name": "string",
+    "description": "string",
+    "dueDate": "2024-02-14 15:30", 
+    "statusID": 0, 
+    "priority": 0 
+  }
+}'
 
 
 # SQL Reference

@@ -10,9 +10,9 @@ namespace InterviewTestAPISleekFlow.Models.ViewModels
         }
         public class todoDataRequest_Filter
         {
-            public List<string> statusSelected { get; set; }
-            public DateTime dateFrom { get; set; }
-            public DateTime dateTo { get; set; }
+            public List<int>? statusIDSelected { get; set; }
+            public DateTime? dueDateFrom { get; set; }
+            public DateTime? dueDateTo { get; set; }
         }
         public class todoDataReturn : tblTodo
         {
