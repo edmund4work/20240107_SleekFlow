@@ -35,9 +35,10 @@ namespace InterviewTestAPISleekFlow.Database
                     .AddJsonFile("appsettings.json")
                     .Build();
 
-                string connectionString = configuration.GetConnectionString("sleekflowdbConnection");
+                string connectionStringsleekflowdb = configuration.GetConnectionString("sleekflowdbConnection");
 
-                optionsBuilder.UseSqlServer(connectionString);
+                //optionsBuilder.UseSqlServer(connectionStringsleekflowdb); //if using tsql
+                optionsBuilder.UseMySql(connectionStringsleekflowdb, ServerVersion.AutoDetect(connectionStringsleekflowdb)); //if using mysql
             }
         }
 

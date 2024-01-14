@@ -9,9 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-//begin: For DB connection 
-builder.Services.AddDbContext<SleekFlowDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("sleekflowdbConnection")));
-//end: For DB Connection
+//begin: For DB connection
+string connectionStringsleekflowdb = builder.Configuration.GetConnectionString("sleekflowdbConnection");
+//if using tsql
+//builder.Services.AddDbContext<SleekFlowDBContext>(options => options.UseSqlServer(connectionStringsleekflowdb));
+//if using mysql
+builder.Services.AddDbContext<SleekFlowDBContext>(options => options.UseMySql(connectionStringsleekflowdb, ServerVersion.AutoDetect(connectionStringsleekflowdb)));
+///end: For DB Connection
 
 builder.Services.AddScoped<ITodoService, TodoService>();
 
