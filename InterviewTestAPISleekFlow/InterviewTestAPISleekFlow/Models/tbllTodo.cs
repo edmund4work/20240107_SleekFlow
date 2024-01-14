@@ -1,17 +1,21 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace InterviewTestAPISleekFlow.Models
 {
-    public class Todo
+    public class tblTodo
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Name is required.")]
         public required string Name { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
 
         public bool enabled { get; set; }
-        public required int statusID { get; set; } //from commonStatus.cs
+        public required int statusID { get; set; } //from commonStatus.cs (1 : Active; 2 : Pending ; 3 : Discontinue ; 4 : Completed)
 
-        public int priority { get; set; }
+        public int priority { get; set; } //1 : Urgent; 2 : Not Urgent ; 3 : Relax
         public DateTime createdDate { get; set; }
         public DateTime updatedDate { get; set; }
     }

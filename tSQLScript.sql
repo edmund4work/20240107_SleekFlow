@@ -1,5 +1,5 @@
 -- Todo Table
-CREATE TABLE Todo (
+CREATE TABLE tblTodo (
     Id INT PRIMARY KEY IDENTITY(1,1),
     Name NVARCHAR(255) NOT NULL,
     Description NVARCHAR(MAX),
@@ -12,20 +12,33 @@ CREATE TABLE Todo (
 );
 
 -- CommonTags Table
-CREATE TABLE commonTags (
+CREATE TABLE tblCommonTags (
     ID INT PRIMARY KEY IDENTITY(1,1),
     tagName NVARCHAR(255) NOT NULL,
     Enabled BIT NOT NULL
 );
 
+INSERT INTO tblCommonTags (tagName,Enabled)
+VALUES
+    ('Works' , 1),
+    ('Good Ideas', 1),
+    ('Project Management', 1);
+
 -- CommonStatus Table
-CREATE TABLE commonStatus (
+CREATE TABLE tblCommonStatus (
     statusID INT PRIMARY KEY IDENTITY(1,1),
     statusName NVARCHAR(255) NOT NULL
 );
+INSERT INTO commonStatus (statusName)
+VALUES
+    ('Active'),
+    ('Pending'),
+    ('Discontinued'),
+    ('Completed'),
+    ('Not Started');
 
 -- TodoTags Table
-CREATE TABLE todoTags (
+CREATE TABLE tblTodoTags (
     ID INT PRIMARY KEY IDENTITY(1,1),
     todoID INT NOT NULL,
     tagName NVARCHAR(255) NOT NULL

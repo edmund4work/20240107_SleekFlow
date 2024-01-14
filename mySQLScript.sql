@@ -1,4 +1,6 @@
-CREATE TABLE Todo (
+use sleekflowDB;
+
+CREATE TABLE tblTodo (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
     Description TEXT,
@@ -10,19 +12,31 @@ CREATE TABLE Todo (
     UpdatedDate DATETIME NOT NULL
 );
 
-CREATE TABLE commonTags (
+CREATE TABLE tblCommonTags (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     tagName VARCHAR(255) NOT NULL,
     Enabled BOOLEAN NOT NULL
 );
+INSERT INTO tblCommonTags (tagName,Enabled)
+VALUES
+    ('Works' , 1),
+    ('Good Ideas', 1),
+    ('Project Management', 1);
 
 
-CREATE TABLE commonStatus (
+CREATE TABLE tblCommonStatus (
     statusID INT AUTO_INCREMENT PRIMARY KEY,
     statusName VARCHAR(255) NOT NULL
 );
+INSERT INTO tblCommonStatus (statusName)
+VALUES
+    ('Active'),
+    ('Pending'),
+    ('Discontinued'),
+    ('Completed'),
+    ('Not Started');
 
-CREATE TABLE todoTags (
+CREATE TABLE tblTodoTags (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     todoID INT  NOT NULL,
     tagName VARCHAR(255) NOT NULL
