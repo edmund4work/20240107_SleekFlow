@@ -31,7 +31,9 @@ curl --location 'https://localhost:7119/api/todo/crud' \
     "description": "string",
     "dueDate": "2024-02-14 15:30", 
     "statusID": 0, 
-    "priority": 0 
+    "priority": 0, 
+    "CreatedID" : 1, 
+    "UpdatedID" : 1
   }
 }'
 
