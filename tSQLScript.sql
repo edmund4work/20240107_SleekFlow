@@ -7,7 +7,28 @@ CREATE TABLE tblTodo (
     StatusId INT NOT NULL,
     Enabled BIT NOT NULL,
     Priority INT NOT NULL,
+    CreatedID int Not NUll,
     CreatedDate DATETIME NOT NULL,
+    UpdatedID int Not NUll,
+    UpdatedDate DATETIME NOT NULL
+);
+
+CREATE TABLE tblTodoStatusLog (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    todoID int not null,
+    StatusID int not null,
+    CreatedID int Not NUll,
+    CreatedDate DATETIME NOT NULL
+)
+
+CREATE TABLE tblUser (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(255) NOT NULL,
+    Enabled BOOLEAN NOT NULL,
+    Priority INT NOT NULL,
+    CreatedID int Not NUll,
+    CreatedDate DATETIME NOT NULL,
+    UpdatedID int Not NUll,
     UpdatedDate DATETIME NOT NULL
 );
 

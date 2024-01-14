@@ -36,7 +36,9 @@ namespace InterviewTestAPISleekFlow.Services
                             DueDate = todoDataRequest.DueDate,
 
                             enabled = true,
+                            CreatedID = todoDataRequest.UpdatedID,
                             createdDate = DateTime.Now,
+                            UpdatedID = todoDataRequest.UpdatedID,
                             updatedDate = DateTime.Now,
                         };
                         sql.Add(todoDetail);
@@ -51,7 +53,7 @@ namespace InterviewTestAPISleekFlow.Services
                     }
                     else
                     {
-                        if (data.todoData.Id != 0)
+                        if (todoDataRequest.Id != 0)
                         {
                             tblTodo todoDetail = returnTodoDetail(todoDataRequest.Id);
                             if (data.action == commonData.actionCode.read)
@@ -72,6 +74,7 @@ namespace InterviewTestAPISleekFlow.Services
                                 todoDetail.Description = todoDataRequest.Description;
                                 todoDetail.DueDate = todoDataRequest.DueDate;
 
+                                todoDetail.UpdatedID = todoDataRequest.UpdatedID;
                                 todoDetail.updatedDate = DateTime.Now;
                                 sql.SaveChanges();
 
@@ -86,6 +89,7 @@ namespace InterviewTestAPISleekFlow.Services
                             else if (data.action == commonData.actionCode.delete)
                             {
                                 todoDetail.enabled = false;
+                                todoDetail.UpdatedID = todoDataRequest.UpdatedID;
                                 todoDetail.updatedDate = DateTime.Now;
                                 sql.SaveChanges();
 
