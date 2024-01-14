@@ -1,14 +1,14 @@
 ﻿using System;
 using InterviewTestAPISleekFlow.Models;
 using InterviewTestAPISleekFlow.Models.ViewModels;
+using static InterviewTestAPISleekFlow.Models.ViewModels.todoVM;
 
 namespace InterviewTestAPISleekFlow.Interfaces
 {
 	public interface ITodoService
     {
-        List<Todo> GetAllTodos();
-
-        Todo todoCRUD(todoVM todo);
+        commonJsonReturn GetAllTodos(todoDataRequest_Filter data);
+        commonJsonReturn todoCRUD(todoDataRequest data);
     }
 }
 

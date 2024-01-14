@@ -6,14 +6,20 @@ namespace InterviewTestAPISleekFlow.common
 		public commonData()
 		{
         }
-        public const string statusCodeSuccess = "s";
-        public const string statusCodeFail = "f";
-        public const string statusCodeEmpty = "e";
+        public class statusCode
+        {
+            public const string success = "s";
+            public const string fail = "f";
+            public const string empty = "e";
+        }
 
-        public const string actionCodeCreate = "c";
-        public const string actionCodeRead = "r";
-        public const string actionCodeUpdate = "u";
-        public const string actionCodeDelete = "d";
+        public class actionCode
+        {
+            public const string create = "c";
+            public const string read = "r";
+            public const string update = "u";
+            public const string delete = "d";
+        }
     }
 }
 

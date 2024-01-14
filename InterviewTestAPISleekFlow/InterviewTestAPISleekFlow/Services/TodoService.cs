@@ -24,19 +24,19 @@ namespace InterviewTestAPISleekFlow.Services
             {
                 if (data != null)
                 {
-                    if (data.action == commonData.actionCodeCreate)
+                    if (data.action == commonData.actionCode.create)
                     {
 
                     }
-                    else if (data.action == commonData.actionCodeRead)
+                    else if (data.action == commonData.actionCode.read)
                     {
 
                     }
-                    else if (data.action == commonData.actionCodeUpdate)
+                    else if (data.action == commonData.actionCode.update)
                     {
 
                     }
-                    else if (data.action == commonData.actionCodeDelete)
+                    else if (data.action == commonData.actionCode.delete)
                     {
 
                     }
@@ -44,7 +44,7 @@ namespace InterviewTestAPISleekFlow.Services
                     {
                         dataCommonReturn = new commonJsonReturn
                         {
-                            returnStatus = commonData.statusCodeFail,
+                            returnStatus = commonData.statusCode.fail,
                             returnMsg = "No Action Found",
                             returnDataObject = null,
                         };
@@ -54,7 +54,7 @@ namespace InterviewTestAPISleekFlow.Services
                 {
                     dataCommonReturn = new commonJsonReturn
                     {
-                        returnStatus = commonData.statusCodeFail,
+                        returnStatus = commonData.statusCode.fail,
                         returnMsg = "Bad Request",
                         returnDataObject = null,
                     };
@@ -64,7 +64,7 @@ namespace InterviewTestAPISleekFlow.Services
             {
                 dataCommonReturn = new commonJsonReturn
                 {
-                    returnStatus = commonData.statusCodeFail,
+                    returnStatus = commonData.statusCode.fail,
                     returnMsg = ex.Message,
                     returnDataObject = null,
                 };
@@ -72,9 +72,12 @@ namespace InterviewTestAPISleekFlow.Services
             return dataCommonReturn;
         }
 
-        public List<Todo> GetAllTodos()
+        public commonJsonReturn GetAllTodos(todoDataRequest_Filter data)
         {
-            throw new NotImplementedException();
+            commonJsonReturn dataCommonReturn = new commonJsonReturn();
+
+
+            return dataCommonReturn;
         }
 
     }

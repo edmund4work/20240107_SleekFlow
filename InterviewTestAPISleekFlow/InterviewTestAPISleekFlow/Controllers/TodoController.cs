@@ -1,46 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InterviewTestAPISleekFlow.Interfaces;
+using InterviewTestAPISleekFlow.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using static InterviewTestAPISleekFlow.Models.ViewModels.todoVM;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace InterviewTestAPISleekFlow.Controllers
 {
+    [ApiController]
     [Route("api/todo/[action]")]
-    public class TodoController : Controller
+    public class TodoController : ControllerBase
     {
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ITodoService _todoService;
+
+        public TodoController(ITodoService todoService)
         {
-            return new string[] { "value1", "value2" };
+            _todoService = todoService;
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpPost, ActionName("getFullList")]
+        public commonJsonReturn getTodoFullList (todoDataRequest_Filter data)
         {
-            return "value";
+            return _todoService.GetAllTodos(data);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPost, ActionName("crud")]
+        public commonJsonReturn todoCRUD(todoDataRequest data)
         {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return _todoService.todoCRUD(data);
         }
     }
 }
