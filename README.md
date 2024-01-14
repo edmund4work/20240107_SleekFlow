@@ -37,6 +37,20 @@ curl --location 'https://localhost:7119/api/todo/crud' \
   }
 }'
 
+Sample JSon Body:
+{
+  "action": "c", //c: Create; r: Read; u: Update; d: Delete;
+  "todoData": {
+    "id": 0, // if action is c, then not need also can.
+    "name": "string",
+    "description": "string",
+    "dueDate": "2024-02-14T14:21:46.857Z", //format yyyyy-MM-dd HH:mm
+    "statusID": 1, //from commonStatus.cs (1 : Active; 2 : Pending ; 3 : Discontinued ; 4 : Completed ; 5 Not Started)
+    "priority": 0, //1 : Urgent; 2 : Not Urgent ; 3 : Relax
+    "CreatedID" : 1, // only need it when action is c
+    "UpdatedID" : 1
+  }
+
 
 # SQL Reference
 1) Create Database in local
